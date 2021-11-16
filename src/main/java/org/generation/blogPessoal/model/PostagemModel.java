@@ -1,4 +1,4 @@
-package org.generation.blogPessoal.Model;
+package org.generation.blogPessoal.model;
 
 import java.util.Date;
 
@@ -37,8 +37,13 @@ public class PostagemModel {
 
 	@ManyToOne
 	@JsonIgnoreProperties("postagemModel")
-	@JoinColumn(name = "fk_id_postagem")
+	@JoinColumn(name = "fk_id_tema")
 	private TemaModel tema;
+
+	@ManyToOne
+	@JsonIgnoreProperties("postagemModel")
+	@JoinColumn(name = "fk_id_usuario")
+	private UsuarioModel usuario;
 
 	public long getIdPostagem() {
 		return idPostagem;
@@ -79,4 +84,13 @@ public class PostagemModel {
 	public void setTema(TemaModel tema) {
 		this.tema = tema;
 	}
+
+	public UsuarioModel getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioModel usuario) {
+		this.usuario = usuario;
+	}
+
 }
