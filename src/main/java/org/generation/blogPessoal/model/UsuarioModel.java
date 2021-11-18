@@ -3,7 +3,6 @@ package org.generation.blogPessoal.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Table(name = "tb_usuarios")
@@ -28,6 +28,8 @@ public class UsuarioModel {
 	@NotNull(message = "O atributo nome é obrigatório")
 	private String nome;
 
+	@ApiModelProperty
+	@Email(message = "O atributo Usuário deve ser um email válido!") 
 	@NotNull(message = "O atributo usuário é obrigatório")
 	private String usuario;
 
